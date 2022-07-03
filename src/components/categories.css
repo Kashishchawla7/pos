@@ -1,0 +1,16 @@
+/* .cards{
+    display:flex;
+    flex-direction: column;
+    flex:1;
+} */
+.cards{
+    flex:1;
+    flex-direction: column;
+    /* height: 100vh; */
+    border:2px gold solid
+}
+.catst{
+    flex:1;
+    /* flex-direction:column; */
+    border:2px orange solid
+}

@@ -1,0 +1,24 @@
+.bg-mycolor{
+    background-color: #00a65a;
+}
+.avtar{
+    height:70px;
+    width:70px;
+    background-color:blue;
+}
+.text{
+    top:50%;
+    left:50%;
+    padding-left:40%;
+    font-style: italic;
+    font-size:x-large;
+    font-weight: bolder;
+
+}
+.me-2{
+    background-color: aliceblue;
+    
+}
+.me-3{
+    background-color: aliceblue;
+}

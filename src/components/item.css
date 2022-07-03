@@ -1,0 +1,32 @@
+.display{
+    /* float:left; */
+    flex:1;
+    justify-content: left;
+    white-space: nowrap;
+    display:block;
+    padding: 2%;
+    display:flex;
+    background-color: aquamarine;
+
+    /* max-width: 100%; */
+
+}
+.name{
+    flex:2;
+    font-size: larger;
+    float:left;
+    text-align: center;
+    /* padding: 10%; */
+    /* justify-content: center; */
+}
+.price{
+    flex:2;
+    /* float:left; */
+    
+}
+.functions{
+    /* display: inline-block; */
+    float: left;
+    flex:3;
+    /* white-space: nowrap; */
+}

@@ -1,0 +1,42 @@
+.main{
+    display:flex;
+    flex: 1;
+    flex-direction: row;
+    height: 80vh;
+    /* padding-top: 5px; */
+}
+.div1{
+    display:flex;
+    flex:1;
+    flex-direction: column;
+    /* height: 100%; */
+    border: 2px black solid;
+}
+.div2{
+    flex:2;
+    flex-direction: column;
+       /* flex-direction: column; */
+    border: 2px blue solid;
+    
+}
+.div3{
+    flex:1;
+    /* flex-direction: column; */
+    border: 2px grey solid;
+
+}
+.divhead{
+    flex:0.01;
+    /* flex-direction: column; */
+    /* height:50px; */
+    background-color: blue;
+    text-align:center;
+    padding-top: 10px;
+    margin:0
+}
+.divcon{
+    display: flex;
+    flex:2;
+    /* flex-direction: column; */
+    /* height: 100%; */
+}
