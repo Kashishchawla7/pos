@@ -56,8 +56,7 @@ export default function Maingrid() {
         </div>
 
         <div>
-        <Link to="/checkout"
-        state={cart}>
+        <Link to={{pathname:"/checkout"}}>
              <button>Checkouts</button>
           </Link>
           

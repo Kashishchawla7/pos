@@ -10,19 +10,20 @@
     flex:1;
     flex-direction: column;
     /* height: 100%; */
-    border: 2px black solid;
+    /* border: 2px black solid; */
 }
 .div2{
     flex:2;
     flex-direction: column;
        /* flex-direction: column; */
-    border: 2px blue solid;
+    /* border: 2px blue solid; */
     
 }
 .div3{
     flex:1;
     /* flex-direction: column; */
-    border: 2px grey solid;
+    /* border: 2px grey solid; */
+    overflow: scroll;
 
 }
 .divhead{

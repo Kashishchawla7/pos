@@ -10,7 +10,7 @@ export default function Checkout() {
     function handleSubmit(event){
         event.preventDefault();
         }
-        const{state} = locations;
+        // const {data} = location;
   return (
     <div>
       <Container >
@@ -35,7 +35,7 @@ export default function Checkout() {
             </Form>
       </Container>
 
-      <Cart prod={locations}/>
+      {/* <Cart prod={{data}}/> */}
     </div>
   )
 }

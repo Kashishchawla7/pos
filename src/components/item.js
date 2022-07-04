@@ -31,8 +31,8 @@ export default function Item({prod , setcart, cart}) {
             >
             <div className="name">{item.name}</div>
             {/* <Button >+</Button>  */}
-            <div className="functions"><button    onClick={()=>add(itemx)}>+</button>
-            <>{current}</>
+            <div className="functions"><button    onClick={()=>add(item)}>+</button>
+            <>{quantity}</>
               {/* <Button variant="outline-info">-</Button> */}
               <button onClick={()=>sub(item)}>-</button>
               </div>
