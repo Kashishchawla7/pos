@@ -6,11 +6,18 @@
 .cards{
     flex:1;
     flex-direction: column;
+    /* background-color: #FFBB40; */
     /* height: 100vh; */
-    border:2px gold solid
+    /* border:2px gold solid */
+    /* display: block;
+    padding:20px; */
 }
 .catst{
     flex:1;
+    background-color: #FFBB40;
+    font-size: large;
+    display: block;
+    padding:20px;
     /* flex-direction:column; */
     border:2px orange solid
 }

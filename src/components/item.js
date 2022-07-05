@@ -31,10 +31,11 @@ export default function Item({prod , setcart, cart}) {
             >
             <div className="name">{item.name}</div>
             {/* <Button >+</Button>  */}
-            <div className="functions"><button    onClick={()=>add(item)}>+</button>
+            <div className="functions">
+              {/* <button    onClick={()=>add(item)}>+</button> */}
             <>{quantity}</>
               {/* <Button variant="outline-info">-</Button> */}
-              <button onClick={()=>sub(item)}>-</button>
+              {/* <button onClick={()=>sub(item)}>-</button> */}
               </div>
             <div className="price">{item.price}</div>
           <button onClick = {()=>update(item) }>ADD</button>

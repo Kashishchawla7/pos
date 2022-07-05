@@ -1,5 +1,5 @@
 .bg-mycolor{
-    background-color: #00a65a;
+    background-color:#c7d8d8;
 }
 .avtar{
     height:70px;
@@ -10,8 +10,8 @@
     top:50%;
     left:50%;
     padding-left:40%;
-    font-style: italic;
-    font-size:x-large;
+    font-style: arial;
+    font-size:xx-large;
     font-weight: bolder;
 
 }

@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row , Col, CarouselItem} from 'react-bootstrap';
+import {Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import "./maingrid.css";
 import Categories from './categories';
@@ -54,12 +55,18 @@ export default function Maingrid() {
           <Cart prod={cart}/>
         </div>
         </div>
-
-        <div>
+    <div className="bottom">
+        <div className="checkout " >
         <Link to={{pathname:"/checkout"}}>
-             <button>Checkouts</button>
+          <div className="d-grid gap-2">
+             <Button variant="success" size="lg">Checkouts</Button>
+             </div>
           </Link>
           
+          </div>
+          <div className="total">
+<h1>TOTAL: {localStorage.getItem('Total')}</h1>
+          </div>
           </div>
     </div>
     

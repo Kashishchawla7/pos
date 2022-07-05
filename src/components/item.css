@@ -6,13 +6,13 @@
     display:block;
     padding: 2%;
     display:flex;
-    background-color: aquamarine;
+    background-color: #00A65a;
 
     /* max-width: 100%; */
 
 }
 .name{
-    flex:2;
+    flex:3;
     font-size: larger;
     float:left;
     text-align: center;
@@ -20,13 +20,13 @@
     /* justify-content: center; */
 }
 .price{
-    flex:2;
+    flex:5;
     /* float:left; */
     
 }
 .functions{
     /* display: inline-block; */
     float: left;
-    flex:3;
+    flex:6;
     /* white-space: nowrap; */
 }

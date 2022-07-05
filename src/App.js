@@ -14,7 +14,7 @@ function App() {
       <div className="App">
         {/* <Login/> */}
         <Routes>
-          <Route path="login" exact element={<Login/>}/>
+          <Route path="/" exact element={<Login/>}/>
           <Route path="/home" exact element={<><Navs/><Maingrid/></>}/>
           <Route path="/checkout" exact element={<Checkout/>}/>
         
