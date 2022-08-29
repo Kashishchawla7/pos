@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./categories.css"
 import Item from './item';
+import { Card } from '@mui/material';
 
 
 const data=[
@@ -58,7 +59,7 @@ const data=[
         ]
     },
     {
-        id:4,
+        id:5,
         name:"Clothing",
         srt:"cl",
         products:[
@@ -70,6 +71,71 @@ const data=[
             {"name":"Suits","price":"1500","quantity":"0"},
             {"name":"Gown","price":"4000","quantity":"0"},
             {"name":"Shorts","price":"400","quantity":"0"},
+            {"name":"Pants","price":"400","quantity":"0"},
+        ]
+    },
+
+    {
+        id:6,
+        name:"Stationary",
+        srt:"st",
+        products:[
+            {"name":"Notebook","price":"150","quantity":"0"},
+            {"name":"Crayons","price":"100","quantity":"0"},
+            {"name":"Sketches","price":"50","quantity":"0"},
+            {"name":"Pensil","price":"10","quantity":"0"},
+            {"name":"Pen","price":"20","quantity":"0"},
+            {"name":"Stickers","price":"100","quantity":"0"},
+            {"name":"Books","price":"300","quantity":"0"},
+            {"name":"Painting Colours","price":"400","quantity":"0"},
+           
+        ]
+    },
+    {
+        id:7,
+        name:"Electronics",
+        srt:"el",
+        products:[
+            {"name":"Camera","price":"10000","quantity":"0"},
+            {"name":"Laptop","price":"50000","quantity":"0"},
+            {"name":"Television","price":"15000","quantity":"0"},
+            {"name":"Monitor","price":"26040","quantity":"0"},
+            {"name":"Smart Automation","price":"45000","quantity":"0"},
+            {"name":"Watches","price":"15000","quantity":"0"},
+            {"name":"Keyboard","price":"4000","quantity":"0"},
+            {"name":"Mouse","price":"1000","quantity":"0"},
+        ]
+    },
+    {
+        id:8,
+        name:"Footwear",
+        srt:"fo",
+        products:[
+            {"name":"Sports shoes","price":"3000","quantity":"0"},
+            {"name":"Sneakers","price":"1000","quantity":"0"},
+            {"name":"Slippers","price":"500","quantity":"0"},
+            {"name":"Flats","price":"440","quantity":"0"},
+            {"name":"Crocs Automation","price":"700","quantity":"0"},
+            {"name":"Sliders","price":"800","quantity":"0"},
+            {"name":"Sandals","price":"1200","quantity":"0"},
+            {"name":"Boots","price":"1000","quantity":"0"},
+        ]
+    },
+    {
+        id:9,
+        name:"Grocery",
+        srt:"gro",
+        products:[
+            {"name":"Sugar","price":"3000","quantity":"0"},
+            {"name":"Salt","price":"1000","quantity":"0"},
+            {"name":"Vegetable","price":"500","quantity":"0"},
+            {"name":"Fruits","price":"440","quantity":"0"},
+            {"name":"Pulses","price":"700","quantity":"0"},
+            {"name":"Tea","price":"800","quantity":"0"},
+            {"name":"Biscuit","price":"1200","quantity":"0"},
+            {"name":"Chips","price":"1000","quantity":"0"},
+            {"name":"Namkeen","price":"1000","quantity":"0"},
+            {"name":"Spices","price":"1000","quantity":"0"},
         ]
     },
 
@@ -93,7 +159,7 @@ export default function Categories({setcat}) {
         <div className="cards" style={{padding:"0"}}>
             
                 
-                    {data.map((item)=><div className="catst" key={item.id}  onClick={()=>setcat(item.products) } >{item.name}</div>)}
+                    {data.map((item)=><Card className="catst" key={item.id}  onClick={()=>setcat(item.products) } >{item.name}</Card>)}
                 
         </div>
 

@@ -1,8 +1,14 @@
+.maingrid{
+    height:100%;
+    max-height: 100vh;
+}
 .main{
     display:flex;
     flex: 1;
     flex-direction: row;
-    height: 80vh;
+    padding: 0;
+    overflow: hidden;
+    /* height: 80vh; */
     /* padding-top: 5px; */
 }
 .div1{

@@ -4,8 +4,8 @@
     flex:1;
 } */
 .cards{
+    display: flex;
     flex:1;
-    flex-direction: column;
     /* background-color: #FFBB40; */
     /* height: 100vh; */
     /* border:2px gold solid */
@@ -13,10 +13,12 @@
     padding:20px; */
 }
 .catst{
+    
     flex:1;
+    flex-direction: row;
     background-color: #FFBB40;
     font-size: large;
-    display: block;
+    /* display: block; */
     padding:20px;
     /* flex-direction:column; */
     border:2px orange solid

@@ -2,73 +2,69 @@ import React,{useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Row , Col, CarouselItem} from 'react-bootstrap';
 import {Button} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Grid2 from '@mui/material/Unstable_Grid2';
 import "./maingrid.css";
-import Categories from './categories';
 import Item from './item';
 import Cart from './cart';
+import { Typography } from '@mui/material';
+import Navs from './nav';
 
 
-export default function Maingrid() {
-  const [cat,setcat] = useState([])
-  const [cart,setcart] = useState([])
+
+export default function Maingrid(props) {
+  let {cat,setcat,cart,setCart} = props;
 //   const next=(item)=>{
 //     console.log(item)
 //     setCat(item.name)
 // }
- const childtoparent=(childdata)=>{
-  setcart(childdata);
- }
+//  const childtoparent=(childdata)=>{
+//   setCart(childdata);
+//  }
 
- const itemtocart=(cartdata)=>{
-   setcart(cartdata)
- }
-
+//  const itemtocart=(cartdata)=>{
+//    setCart(cartdata)
+//  }
+ let navigate = useNavigate();
  
-  return (
-    <div>
-    <div className='main'>
+ return (
+  <div className='maingrid' >
+  <Navs cat={cat} setcat={setcat}/>
+    <Container fluid className='main'>
      
-        <div className="div1">
-          <div className='divhead'>
-            Categories            
-          </div>
-          
-          <Categories className='divcon' setcat={setcat}/>
-
-        </div>
+   
 
         <div className="div2">
-        <p className='divhead'>
-            Items            
-          </p>
+        <Typography variant='h5' >
+          Items            
+          </Typography>
           
           <div className='divit'>
-          <Item prod={cat} setcart={setcart}/>
+          <Item cat={cat} setCart={setCart} cart={cart}/>
           </div>
         </div>
-  
+        {console.log(cart)}
         <div className="div3">
-        <p className='divhead'>
+        <Typography variant='h5'>
             Cart            
-          </p>
-          <Cart prod={cart}/>
+          </Typography>
+          <Cart cart={cart} />
         </div>
-        </div>
+        </Container>
     <div className="bottom">
         <div className="checkout " >
-        <Link to={{pathname:"/checkout"}}>
+       
           <div className="d-grid gap-2">
-             <Button variant="success" size="lg">Checkouts</Button>
+            <Button  variant="success" size="lg" onClick={()=>navigate('/checkout')}>Checkouts</Button>
              </div>
-          </Link>
+      
           
           </div>
           <div className="total">
 <h1>TOTAL: {localStorage.getItem('Total')}</h1>
           </div>
-          </div>
-    </div>
+  </div>
+</div>
     
   )
 }

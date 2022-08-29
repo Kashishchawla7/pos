@@ -1,6 +1,11 @@
 .bg-mycolor{
     background-color:#c7d8d8;
 }
+.main{
+    display:flex;
+    flex:1;
+    /* flex-direction: row; */
+}
 .avtar{
     height:70px;
     width:70px;
