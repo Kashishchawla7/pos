@@ -6,8 +6,7 @@
 .cards{
     display: flex;
     flex:1;
-    /* background-color: #FFBB40; */
-    /* height: 100vh; */
+    background-color: #FFBB40;
     /* border:2px gold solid */
     /* display: block;
     padding:20px; */

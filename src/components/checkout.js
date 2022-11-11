@@ -45,8 +45,9 @@ export default function Checkout(props) {
       style={{
         display: "flex",
         flex: 1,
-        margin: "7%",
-        boxShadow: " 0 5px 5px 0",
+        marginTop: "10%",
+        height: "70%",
+        boxShadow: " 1px 0 1px 2px  #c8d0e7 inset",
       }}
     >
       <div
@@ -63,10 +64,20 @@ export default function Checkout(props) {
           }}
         >
           {cart.map((item, index) => (
-            <div className="orders" key={item.index}>
-              <div style={{ float: "left" }}>{item.name}</div>
+            <div
+              className="orders"
+              style={{
+                boxShadow:
+                  "0.3rem 0.3rem 0.2rem #c8d0e7 inset , -0.2rem -0.2rem 0.2rem #ffffff inset  ",
+                margin: "1rem",
+                padding: "0.5rem",
+                marginBottom: " 0.5rem",
+              }}
+              key={item.index}
+            >
+              <div style={{ float: "left", height: "2rem" }}>{item.ITEM}</div>
 
-              <div>{item.price}</div>
+              {/* <div>{item.price}</div> */}
               {/* {total(prod,count) } */}
             </div>
           ))}
@@ -219,7 +230,7 @@ export default function Checkout(props) {
                 style={{
                   // width: "15rem",
                   float: "left",
-                  width: "85%",
+                  width: "35rem",
                   margin: "0 0 1rem 2rem",
                 }}
                 controlId="Total"
@@ -275,7 +286,7 @@ export default function Checkout(props) {
               >
                 <TextField
                   id="standard-basic "
-                  label="BirthDate"
+                  label="Card Name"
                   variant="standard"
                   value={""}
                   onChange={(e) => setcardName(e.target.value)}
@@ -294,7 +305,7 @@ export default function Checkout(props) {
               >
                 <TextField
                   id="standard-basic "
-                  label="BirthDate"
+                  label="Card Cvv"
                   variant="standard"
                   value={""}
                   onChange={(e) => setcardCvv(e.target.value)}
@@ -313,7 +324,7 @@ export default function Checkout(props) {
               >
                 <TextField
                   id="standard-basic "
-                  label="BirthDate"
+                  label="Card Date"
                   variant="standard"
                   value={""}
                   onChange={(e) => setcardDate(e.target.value)}

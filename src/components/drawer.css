@@ -1,0 +1,41 @@
+/* @import "rsuite/dist/rsuite.css"; */
+
+#root{ padding: 10px; }
+.list{
+    position: relative;
+    display: block;
+    width: 100%;
+    /* font-weight: bold; */
+    /* font-size: x-large; */
+    color: #332e38;
+    cursor: pointer;
+    border-bottom: 1px solid #dee2e6;
+    
+}
+.itemName{
+    font-size: 20px;
+    display: block;
+    font-weight: 1600;
+    margin: 0 auto 6px;
+
+}
+.listLogo{
+    font-size: 40px;
+    height: 40px;
+    width: 32px;
+    display: block;
+    margin: 0 auto 6px;
+}
+.show-drawer {
+    top: 47px !important;
+    text-align: left !important;
+    width: 80% !important;
+    transform: translate(0%, 0px) !important;
+  }
+  
+  .hide-drawer {
+    top: 47px !important;
+    text-align: left !important;
+    width: 80% !important;
+    transform: translate(100%, 0px) !important;
+  }
