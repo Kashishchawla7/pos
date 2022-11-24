@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
 import Form from "react-bootstrap/Form";
 import { Container, FormGroup } from "react-bootstrap";
 import { TextField, MenuItem } from "@mui/material";
 import "./checkout.css";
 import { textAlign } from "@mui/system";
+import Button from "react-bootstrap/Button";
+import axios from "axios";
 
 const mode = [
   {
@@ -31,13 +33,35 @@ export default function Checkout(props) {
   const [cardCvv, setcardCvv] = useState("");
   const [cardDate, setcardDate] = useState("");
   const [cash, setCash] = useState(true);
-  const [cashRec, setCashRec] = useState();
-  const [rem, setRem] = useState();
+  const [cashRec, setCashRec] = useState(0);
+  const [rem, setRem] = useState(0);
 
   const [payMode, setPayMode] = useState("Cash");
-  const { cart } = props;
+  const { cart, total } = props;
+
+  useEffect(() => {
+    console.log("balance");
+    balance();
+  });
+
+  const balance = () => {
+    var money = 0;
+    money = parseInt(cashRec) - total;
+    setRem(money);
+    return money;
+  };
   function handleSubmit(event) {
     event.preventDefault();
+    let body = JSON.stringify({
+      email,
+      name,
+      dob,
+      number,
+    });
+
+    axios.post("http://localhost:3001/bill", {
+      body: body,
+    });
   }
   // const {data} = location;
   return (
@@ -72,10 +96,38 @@ export default function Checkout(props) {
                 margin: "1rem",
                 padding: "0.5rem",
                 marginBottom: " 0.5rem",
+                display: "flex",
+                flexDirection: "row",
               }}
               key={item.index}
             >
-              <div style={{ float: "left", height: "2rem" }}>{item.ITEM}</div>
+              <div style={{ flex: 1, float: "left", height: "2rem" }}>
+                {item.ITEM}
+              </div>
+              <div style={{ flex: 1, float: "left", height: "2rem" }}>
+                <input
+                  type="number"
+                  placeholder="Quantity"
+                  value={item.ITEM_QUANTITY}
+                  maxLength={3}
+                  style={{
+                    width: "4rem",
+                    flex: 3,
+                    textAlign: "end",
+                  }}
+                />
+              </div>
+
+              <div
+                style={{
+                  flex: 2,
+                  float: "left",
+                  height: "2rem",
+                  justifyContent: "end",
+                }}
+              >
+                {item.ITEM_PRICE}
+              </div>
 
               {/* <div>{item.price}</div> */}
               {/* {total(prod,count) } */}
@@ -198,12 +250,17 @@ export default function Checkout(props) {
               >
                 <TextField
                   id="standard-basic "
-                  label="Total"
+                  label="Cash Recieved"
                   variant="standard"
-                  value={"2345"}
-                  inputProps={{ readOnly: true }}
-
-                  // onChange={(e) => setDob(e.target.value)}
+                  // type="number"
+                  defaultValue={0}
+                  value={cashRec}
+                  // inputProps={{ readOnly: true }}
+                  minLength={1}
+                  onChange={(e) => {
+                    setCashRec(e.target.value);
+                    // balance();
+                  }}
                 ></TextField>
               </FormGroup>
               <FormGroup
@@ -218,11 +275,12 @@ export default function Checkout(props) {
               >
                 <TextField
                   id="standard-basic "
-                  label="Cash Recieved"
+                  label="Total"
                   variant="standard"
-                  value={cashRec}
-                  // inputProps={{ readOnly: true }}
-                  onChange={(e) => setCashRec(e.target.value)}
+                  value={total}
+                  inputProps={{ readOnly: true }}
+
+                  // onChange={(e) => setDob(e.target.value)}
                 ></TextField>
               </FormGroup>
               <FormGroup
@@ -332,6 +390,9 @@ export default function Checkout(props) {
               </FormGroup>
             </div>
           ) : null}
+          <Button variant="primary btn-block" size="lg" type="submit">
+            Submit
+          </Button>
         </Form>
       </div>
 

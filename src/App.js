@@ -14,6 +14,7 @@ import Admin from "./screens/adminDashboard";
 function App() {
   const [cat, setcat] = useState([]);
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
 
   return (
     <Router>
@@ -32,14 +33,21 @@ function App() {
                   setcat={setcat}
                   cart={cart}
                   setCart={setCart}
+                  total={total}
+                  setTotal={setTotal}
                 />
               </>
             }
           />
           {console.log(cart)}
-          <Route path="/checkout" exact element={<Checkout cart={cart} />} />
-          <Route path="/test" exact element={<Navbar cart={cart} />} />
-          <Route path="/test2" exact element={<Admin />} />
+          {console.log(total)}
+          <Route
+            path="/checkout"
+            exact
+            element={<Checkout cart={cart} total={total} />}
+          />
+          {/* <Route path="/admin" exact element={<Navbar cart={cart} />} /> */}
+          <Route path="/admin" exact element={<Admin />} />
         </Routes>
       </div>
     </Router>

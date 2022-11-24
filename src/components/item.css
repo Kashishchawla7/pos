@@ -47,3 +47,6 @@
     flex:6;
     /* white-space: nowrap; */
 }
+.addButton{
+    width: 100%;
+}

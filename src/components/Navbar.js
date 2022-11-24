@@ -16,6 +16,7 @@ export default function Navbar(props) {
   //   setIsOpen(!isOpen);
   //   console.log(isOpen);
   // };
+  const name = localStorage.getItem("name");
   return (
     <div
       style={{
@@ -33,7 +34,7 @@ export default function Navbar(props) {
       }}
     >
       <div className="initials" style={{ flex: 1 }}>
-        {logoName}
+        {name}
       </div>
       <div className="drawer" style={{ flex: 1 }}>
         <DehazeIcon style={{ fontSize: "bolder" }} onClick={() => setOpen()} />

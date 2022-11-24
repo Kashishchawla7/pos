@@ -11,7 +11,7 @@ import { Typography } from "@mui/material";
 import Navs from "./nav";
 
 export default function Maingrid(props) {
-  let { cat, setcat, cart, setCart } = props;
+  let { cat, setcat, cart, setCart, total, setTotal } = props;
   //   const next=(item)=>{
   //     console.log(item)
   //     setCat(item.name)
@@ -39,7 +39,7 @@ export default function Maingrid(props) {
         {console.log(cart)}
         <div className="div3">
           <Typography variant="h5">Cart</Typography>
-          <Cart cart={cart} />
+          <Cart cart={cart} total={total} setTotal={setTotal} />
         </div>
       </Container>
       <div className="bottom">
@@ -48,15 +48,17 @@ export default function Maingrid(props) {
             <Button
               variant="success"
               size="lg"
-              onClick={() => navigate("/checkout")}
+              onClick={() => {
+                navigate("/checkout");
+              }}
             >
               Checkouts
             </Button>
           </div>
         </div>
-        <div className="total">
+        {/* <div className="total">
           <h1>TOTAL: {localStorage.getItem("Total")}</h1>
-        </div>
+        </div> */}
       </div>
     </div>
   );

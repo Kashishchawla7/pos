@@ -1,14 +1,14 @@
 .maingrid{
     height:100vh;
     max-height: 100vh;
-    z-index:1,
-
+    z-index:1;
+    /* overflow:hidden; */
 }
 .main{
     display:flex;
     flex: 1;
     flex-direction: row;
-    padding: 0;
+    /* padding: 0ṣ; */
     overflow: hidden;
     /* height: 80vh; */
     /* padding-top: 5px; */
@@ -30,7 +30,7 @@
        /* flex-direction: column; */
     /* border: 2px blue solid; */
     min-height: 100%;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     
 }
 .div3{
@@ -64,13 +64,12 @@
     /* height: 100%; */
 }
 .checkout{
-    flex:3;
-    flex-direction: column;
-    float:left
+    width:100%;
 }
+/* 
 .total{
     flex:1
-}
+} */
 .bottom{
     display:flex;
     height:5vh;

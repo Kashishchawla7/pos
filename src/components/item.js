@@ -4,24 +4,11 @@ import { Row, Col } from "react-bootstrap";
 import "./item.css";
 import { Button, Card, Modal, Box, Typography, Grid } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-// const style = {
-//   position: 'absolute' ,
-//   top: '50%',
-//   left: '50%',
-//   transform: 'translate(-50%, -50%)',
-//   width: 1000,
-//   height:400,
-//   bgcolor: 'background.paper',
-//   border: '2px solid #000',
-//   boxShadow:1,
-//   p: 4,
-//   outline:0,
-// };
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
 
 export default function Item(props) {
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
   const [index, setIndex] = useState(0);
   // console.log(prod);
   const [quantity, setQuantity] = useState();
@@ -40,7 +27,10 @@ export default function Item(props) {
         console.log(element);
         if (element.ITEM == item.ITEM) {
           flag = 1;
-          temp[index].price = parseInt(element.price) + parseInt(item.price);
+          temp[index].ITEM_PRICE =
+            parseInt(element.ITEM_PRICE) + parseInt(item.ITEM_PRICE);
+          temp[index].ITEM_QUANTITY =
+            parseInt(element.ITEM_QUANTITY) + parseInt(item.ITEM_QUANTITY);
         }
       });
       if (flag == 0) {
@@ -62,37 +52,38 @@ export default function Item(props) {
                 key={item.ITEM_ID}
                 onChange={(e, value) => setIndex(value)}
               >
-                <div className="name">{item.ITEM}</div>
-                {/*             
-<Modal 
-  open={open}
-  onClose={handleClose}
-  aria-labelledby="modal-modal-title"
-  aria-describedby="modal-modal-description"
->
-  {/* <button onClick={handleClose}>^ </button> */}
-                {/* <Box sx={style}>
-    <Typography className="name" variant="h6" component="h2">
-    {item.name}
-    </Typography>
-    <Typography  className="price" sx={{ mt: 2 }}>
-    {item.price}
-    </Typography>
-  </Box>
-</Modal> */}
-                <div className="price">{item.price}</div>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image="/static/images/cards/contemplative-reptile.jpg"
+                  alt="green iguana"
+                />
+                <CardContent style={{ width: "100%" }}>
+                  <Typography gutterBottom variant="h6" component="div">
+                    {item.ITEM}
+                  </Typography>
+                  <Typography
+                    variant="body2"
+                    component="div"
+                    color="text.secondary"
+                  >
+                    {item.ITEM_PRICE}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    className="addButton"
+                    // style={{ minWidth: "100%" }}
+                    variant="contained"
+                    color="primary"
+                    size="lg"
+                    aria-label="add to shopping cart"
+                    onClick={() => update(item)}
+                  >
+                    ADD <AddShoppingCartIcon />
+                  </Button>
+                </CardActions>
               </div>
-              <Button
-                className="addButton"
-                style={{ width: "100%" }}
-                variant="contained"
-                color="primary"
-                size="lg"
-                aria-label="add to shopping cart"
-                onClick={() => update(item)}
-              >
-                ADD <AddShoppingCartIcon />
-              </Button>
             </Card>
           </Grid>
         ))}

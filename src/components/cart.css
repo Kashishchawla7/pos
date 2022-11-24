@@ -22,6 +22,17 @@
 }
 .price{
     flex:2;
+    font-style:italic;
+    font-weight: bold;
     /* float:left; */
     
+}
+.total{
+    /* top: 100%; */
+    justify-content: space-around;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    flex:1;
+    flex-direction:row;
 }

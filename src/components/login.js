@@ -26,15 +26,17 @@ export default function Login() {
         password: password,
         isAdmin: isAdmin,
       })
-      .then(function (response) {
-        console.log(response);
+      .then(function(response) {
+        console.log(JSON.parse(JSON.stringify(response.data)));
         if ((response.status = 200 && isAdmin == true)) {
+          var names = JSON.parse(JSON.stringify(response));
+          localStorage.setItem("name", names.data.procResults[0].USER_NAME);
           navigate("/admin");
         } else if ((response.status = 200 && isAdmin == false)) {
           navigate("/home");
         }
       })
-      .catch(function (response) {
+      .catch(function(response) {
         console.log(response);
       });
     // logins(email, password);
