@@ -10,6 +10,7 @@ import Checkout from "./components/checkout";
 import Navbar from "./components/Navbar";
 import { Drawer } from "rsuite";
 import Admin from "./screens/adminDashboard";
+import Error from "./components/error.js";
 
 function App() {
   const [cat, setcat] = useState([]);
@@ -48,6 +49,7 @@ function App() {
           />
           {/* <Route path="/admin" exact element={<Navbar cart={cart} />} /> */}
           <Route path="/admin" exact element={<Admin />} />
+          <Route path="/error" exact element={<Error />} />
         </Routes>
       </div>
     </Router>

@@ -57,8 +57,10 @@ export default function Checkout(props) {
       name,
       dob,
       number,
+      cart,
     });
 
+    console.log(body);
     axios.post("http://localhost:3001/bill", {
       body: body,
     });

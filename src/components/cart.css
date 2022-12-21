@@ -27,11 +27,14 @@
     /* float:left; */
     
 }
+.mains{
+    max-height: 100%;
+}
 .total{
     /* top: 100%; */
-    justify-content: space-around;
+    justify-content: flex-end;
     position: absolute;
-    bottom: 0px;
+    bottom:7vh;
     display: flex;
     flex:1;
     flex-direction:row;

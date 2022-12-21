@@ -27,17 +27,27 @@ export default function Login() {
         isAdmin: isAdmin,
       })
       .then(function(response) {
-        console.log(JSON.parse(JSON.stringify(response.data)));
-        if ((response.status = 200 && isAdmin == true)) {
+        console.log(JSON.parse(JSON.stringify(response)));
+        if (response.status == 500) {
+          navigate("/error");
+          console.log("error");
+        } else if (
+          response.status == 200 &&
+          response.data.user_message == "Successful Admin Login"
+        ) {
           var names = JSON.parse(JSON.stringify(response));
           localStorage.setItem("name", names.data.procResults[0].USER_NAME);
           navigate("/admin");
-        } else if ((response.status = 200 && isAdmin == false)) {
+        } else if (
+          response.status == 200 &&
+          response.data.user_message == "Successful Sales Login"
+        ) {
           navigate("/home");
         }
       })
       .catch(function(response) {
         console.log(response);
+        navigate("/error");
       });
     // logins(email, password);
   }

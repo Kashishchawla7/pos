@@ -1,7 +1,7 @@
 .maingrid{
     height:100vh;
     max-height: 100vh;
-    z-index:1;
+    /* z-index:1; */
     /* overflow:hidden; */
 }
 .main{
@@ -35,6 +35,8 @@
 }
 .div3{
     flex:1;
+    height: auto;
+    min-height: 100%;
     /* flex-direction: column; */
     /* border: 2px grey solid; */
     overflow: scroll;
@@ -71,6 +73,6 @@
     flex:1
 } */
 .bottom{
-    display:flex;
+    /* display:flex; */
     height:5vh;
 }

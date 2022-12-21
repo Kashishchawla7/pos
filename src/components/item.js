@@ -56,7 +56,7 @@ export default function Item(props) {
                   component="img"
                   height="140"
                   image="/static/images/cards/contemplative-reptile.jpg"
-                  alt="green iguana"
+                  alt="Image"
                 />
                 <CardContent style={{ width: "100%" }}>
                   <Typography gutterBottom variant="h6" component="div">
@@ -73,10 +73,10 @@ export default function Item(props) {
                 <CardActions>
                   <Button
                     className="addButton"
-                    // style={{ minWidth: "100%" }}
+                    style={{ minWidth: "100%" }}
                     variant="contained"
                     color="primary"
-                    size="lg"
+                    // size="lg"
                     aria-label="add to shopping cart"
                     onClick={() => update(item)}
                   >
