@@ -7,6 +7,8 @@ import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import toast, { Toaster } from "react-hot-toast";
+// import "react-toastify/dist/ReactToastify.css";
 
 export default function Item(props) {
   const [index, setIndex] = useState(0);
@@ -17,6 +19,25 @@ export default function Item(props) {
   const carts = [];
   const update = (item) => {
     // setCart(cart.concat(item));
+    console.log("clicked");
+    toast.success("Item Added", {
+      duration: 1000,
+      position: "bottom-right",
+
+      // Custom Icon
+      icon: "✅",
+      // Change colors of success/error/loading icon
+      iconTheme: {
+        primary: "#0a0",
+        secondary: "#fff",
+      },
+      // Aria
+      ariaProps: {
+        role: "status",
+        "aria-live": "polite",
+      },
+    });
+
     console.log(item, cart);
     var temp = JSON.parse(JSON.stringify(cart));
     if (cart.length == 0) {
@@ -73,7 +94,8 @@ export default function Item(props) {
                 <CardActions>
                   <Button
                     className="addButton"
-                    style={{ minWidth: "100%" }}
+                    fullWidth
+                    // style={{ minWidth: "100%", width: "100%" }}
                     variant="contained"
                     color="primary"
                     // size="lg"
@@ -88,6 +110,7 @@ export default function Item(props) {
           </Grid>
         ))}
       </Grid>
+      <Toaster />
     </div>
   );
 }

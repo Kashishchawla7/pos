@@ -1,0 +1,12 @@
+#root{ padding: 10px; }
+.list{
+    position: relative;
+    display: block;
+    width: 100%;
+    /* font-weight: bold; */
+    /* font-size: x-large; */
+    color: #332e38;
+    cursor: pointer;
+    border-bottom: 1px solid #dee2e6;
+    
+}

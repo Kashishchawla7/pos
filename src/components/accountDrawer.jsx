@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./drawer.css";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -10,6 +10,9 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import AddIcon from "@mui/icons-material/Add";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Button } from "@mui/material";
+import axios from "axios";
 
 const styles = {
   radioGroupLabel: {
@@ -19,35 +22,14 @@ const styles = {
   },
 };
 
-const list = [
-  {
-    name: "Dashboard",
-    icon: BarChartIcon,
-    url: "/admin/dashboard",
-  },
-  {
-    name: "Place Order",
-    icon: ContentPasteSearchIcon,
-    url: "/admin/order",
-  },
-  {
-    name: "Add Item",
-    icon: AddIcon,
-    url: "/admin/addItem",
-  },
-  {
-    name: "Add User",
-    icon: GroupAddIcon,
-    url: "/admin/addUser",
-  },
-];
-
-export default function Drawers(props) {
+export default function AccountDrawer(props) {
   let navigate = useNavigate();
   const [size, setSize] = React.useState("");
   const { opens } = props;
   const [open, setOpen] = React.useState(true);
-  const [placement, setPlacement] = useState("left");
+  const [clicked, setClicked] = React.useState(false);
+  const [placement, setPlacement] = useState("right");
+  const name = localStorage.getItem("name");
 
   const handleOpen = (key) => {
     setOpen(true);
@@ -56,6 +38,28 @@ export default function Drawers(props) {
   const close = () => {
     setOpen(false);
   };
+  const markIn=() => {
+    let body = JSON.parse(
+      JSON.stringify({
+        name
+      })
+    );
+      axios
+      .post("http://localhost:3001/markIn", {
+        body: body,
+      })
+      .catch(function(response) {
+        console.log(response);
+        // navigate("/error");
+      });
+  }
+  
+  function markOut() {
+  }
+  const logOut = () =>{
+    localStorage.removeItem("name");
+    navigate("/");
+  }
   // const push = (url) => {};
 
   return (
@@ -67,9 +71,9 @@ export default function Drawers(props) {
           variant="persistent"
           PaperProps={{
             sx: {
-              width: 240,
+              width: 340,
               zIndex: 90,
-              marginTop: "11vh",
+              marginTop: "12vh",
             },
           }}
           // containerClassName={open ? "hide-drawer" : "show-drawer"}
@@ -81,20 +85,16 @@ export default function Drawers(props) {
         >
           {/* <Typography>Clipped drawer</Typography> */}
           {/* {list(anchor)} */}
-          <div>
-            {list.map((item) => (
-              <div
-                className="list"
-                onClick={() => {
-                  navigate(item.url);
-                }}
-              >
-                <div className="listLogo">
-                  <item.icon />
-                </div>
-                <div className="itemName">{item.name}</div>
-              </div>
-            ))}
+          <div >
+          
+        <AccountCircleIcon style={{  fontSize:"x-large",fontWeight:"bolder"}}/>
+
+          </div>
+          <div style={{display:"flex",justifyContent:"space-evenly"}}>
+            
+          <Button variant="contained" color="primary" onClick={markIn}>Mark In</Button>
+              <Button variant="contained" color="secondary" onClick={markOut}>Mark Out</Button>
+              <Button variant="contained" onClick={logOut}>Log Out</Button>
           </div>
         </SwipeableDrawer>
       </>

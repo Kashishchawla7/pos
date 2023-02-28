@@ -28,10 +28,7 @@ export default function Login() {
       })
       .then(function(response) {
         console.log(JSON.parse(JSON.stringify(response)));
-        if (response.status == 500) {
-          navigate("/error");
-          console.log("error");
-        } else if (
+        if (
           response.status == 200 &&
           response.data.user_message == "Successful Admin Login"
         ) {

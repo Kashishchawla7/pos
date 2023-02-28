@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
 import "./drawer.css";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
@@ -10,7 +10,9 @@ import ContentPasteSearchIcon from "@mui/icons-material/ContentPasteSearch";
 import AddIcon from "@mui/icons-material/Add";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
+import "./notidrawer.css";
 
+import axios from "axios";
 const styles = {
   radioGroupLabel: {
     padding: "8px 12px",
@@ -19,35 +21,15 @@ const styles = {
   },
 };
 
-const list = [
-  {
-    name: "Dashboard",
-    icon: BarChartIcon,
-    url: "/admin/dashboard",
-  },
-  {
-    name: "Place Order",
-    icon: ContentPasteSearchIcon,
-    url: "/admin/order",
-  },
-  {
-    name: "Add Item",
-    icon: AddIcon,
-    url: "/admin/addItem",
-  },
-  {
-    name: "Add User",
-    icon: GroupAddIcon,
-    url: "/admin/addUser",
-  },
-];
 
-export default function Drawers(props) {
+export default function NotiDrawer(props) {
   let navigate = useNavigate();
   const [size, setSize] = React.useState("");
+  const [datas, setDatas] = React.useState([]);
   const { opens } = props;
   const [open, setOpen] = React.useState(true);
-  const [placement, setPlacement] = useState("left");
+  const [placement, setPlacement] = useState("right");
+  const name = localStorage.getItem("name");
 
   const handleOpen = (key) => {
     setOpen(true);
@@ -56,20 +38,43 @@ export default function Drawers(props) {
   const close = () => {
     setOpen(false);
   };
-  // const push = (url) => {};
-
+  
+    // const push = (url) => {};
+    useEffect(()=>{
+    notification()
+},[]);
+const notification =()=>{let body = JSON.parse(
+    JSON.stringify({
+        name
+    })
+    );
+    console.log(body)
+axios
+.post("http://localhost:3001/notification", {
+  body: body,
+})
+.then((response)=>{
+    console.log(response);
+    console.log(response.data)
+    var data= JSON.parse(JSON.stringify(response.data.procResults))
+    setDatas(data)
+    console.log(data);
+})
+.catch(function(response) {
+  console.log(response);
+  navigate("/error");
+})}
   return (
     <div>
-      <>
         <SwipeableDrawer
           anchor={placement}
           open={open}
           variant="persistent"
           PaperProps={{
             sx: {
-              width: 240,
-              zIndex: 90,
-              marginTop: "11vh",
+              width: 340,
+              zIndex: 80,
+              marginTop: "12vh",
             },
           }}
           // containerClassName={open ? "hide-drawer" : "show-drawer"}
@@ -82,22 +87,17 @@ export default function Drawers(props) {
           {/* <Typography>Clipped drawer</Typography> */}
           {/* {list(anchor)} */}
           <div>
-            {list.map((item) => (
-              <div
-                className="list"
-                onClick={() => {
-                  navigate(item.url);
-                }}
-              >
-                <div className="listLogo">
-                  <item.icon />
-                </div>
-                <div className="itemName">{item.name}</div>
-              </div>
-            ))}
+            {
+              datas.map((item,index)=>{
+                console.log(item)
+                return <div className="list"><h6>{
+                  item.MSG}
+                  </h6></div>
+              })
+            }
+         
           </div>
         </SwipeableDrawer>
-      </>
     </div>
   );
 }

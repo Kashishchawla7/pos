@@ -11,6 +11,13 @@ import Navbar from "./components/Navbar";
 import { Drawer } from "rsuite";
 import Admin from "./screens/adminDashboard";
 import Error from "./components/error.js";
+import AddItem from "./components/addItem";
+import AddUser from "./components/addUser";
+import Success from "./components/success";
+import UpdateUser from "./components/updateUser";
+import DeleteUser from "./components/deleteUser";
+import DeleteItem from "./components/deleteItem";
+import UpdateItem from "./components/updateItem";
 
 function App() {
   const [cat, setcat] = useState([]);
@@ -45,11 +52,72 @@ function App() {
           <Route
             path="/checkout"
             exact
-            element={<Checkout cart={cart} total={total} />}
+            element={<Checkout cart={cart} setCart={setCart} total={total} />}
           />
           {/* <Route path="/admin" exact element={<Navbar cart={cart} />} /> */}
           <Route path="/admin" exact element={<Admin />} />
+          <Route
+            path="/admin/addItem"
+            exact
+            element={
+              <>
+                <Admin />
+                <AddItem />
+              </>
+            }
+          />
+          <Route
+            path="/admin/updateItem"
+            exact
+            element={
+              <>
+                <Admin />
+                <UpdateItem />
+              </>
+            }
+          />
+          <Route
+            path="/admin/deleteItem"
+            exact
+            element={
+              <>
+                <Admin />
+                <DeleteItem />
+              </>
+            }
+          />
+          <Route
+            path="/admin/addUser"
+            exact
+            element={
+              <>
+                <Admin />
+                <AddUser />
+              </>
+            }
+          />
+          <Route
+            path="/admin/UpdateUser"
+            exact
+            element={
+              <>
+                <Admin />
+                <UpdateUser />
+              </>
+            }
+          />
+          <Route
+            path="/admin/deleteUser"
+            exact
+            element={
+              <>
+                <Admin />
+                <DeleteUser />
+              </>
+            }
+          />
           <Route path="/error" exact element={<Error />} />
+          <Route path="/success" exact element={<Success />} />
         </Routes>
       </div>
     </Router>

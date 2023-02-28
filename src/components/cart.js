@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./cart.css";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function Cart(props) {
   const [prices, setPrices] = useState();
@@ -35,6 +36,7 @@ export default function Cart(props) {
 
   const update = (cart) => {
     console.log(cart);
+
     // setTotal(0);
     var temp = JSON.parse(JSON.stringify(cart));
     var totals = 0;
@@ -67,11 +69,11 @@ export default function Cart(props) {
           <div className="price">{item.ITEM_PRICE}</div>
         </div>
       ))}
-      <div className="total">
-        {/* <hr></hr> */}
-        <div style={{ flex: 1, fontWeight: "bold" }}>TOTAL:</div>
-        <div style={{ flex: 3, fontWeight: "bolder" }}>{total}</div>
-      </div>
+      {/* <div className="total"> */}
+      {/* <hr></hr> */}
+      {/* <div style={{ flex: 1, fontWeight: "bold" }}>TOTAL:</div> */}
+      {/* <div style={{ flex: 3, fontWeight: "bolder" }}>{total}</div> */}
+      {/* </div> */}
     </div>
   );
 }

@@ -10,7 +10,7 @@ import Drawers from "./drawer";
 export default function Navbar(props) {
   const [logoName, setLogoName] = useState("sFAVD");
   // const [open, setOpen] = React.useState(false);
-  let { isOpen, setOpen } = props;
+  let { isOpen, setOpen, isOpens, setOpens, isOpenA, setOpenA } = props;
   // const handleOpen = () => {
   //   console.log(isOpen);
   //   setIsOpen(!isOpen);
@@ -70,10 +70,10 @@ export default function Navbar(props) {
       </div>
       <div style={{ flex: 3 }}></div>
       <div style={{ flex: 0.5 }}>
-        <NotificationsIcon style={{ fontSize: "bolder" }} />
+        <NotificationsIcon style={{ fontSize: "bolder" }} onClick={setOpens} />
       </div>
       <div style={{ flex: 0.5 }}>
-        <AccountCircleIcon style={{ fontSize: "bolder" }} />
+        <AccountCircleIcon style={{ fontSize: "bolder" }} onClick={setOpenA} />
       </div>
     </div>
   );
