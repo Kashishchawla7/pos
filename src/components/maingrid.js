@@ -27,7 +27,9 @@ export default function Maingrid(props) {
 
   return (
     <div className="maingrid">
-      <Navs className="categories" cat={cat} setcat={setcat} />
+      <div className="categories">
+        <Navs cat={cat} setcat={setcat} />
+      </div>
       <Container fluid className="main">
         <div className="div2">
           <Typography variant="h5">Items</Typography>

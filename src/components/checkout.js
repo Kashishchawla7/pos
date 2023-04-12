@@ -498,7 +498,7 @@ export default function Checkout(props) {
                   }}
                 >
                   <QRCode
-                    value={`upi://pay?pa=${upis}&pn=Kashish%20Chawla&tn=undefined&am=${total}`}
+                    value={`upi://pay?pa=chawlakashish99@okhdfcbank&pn=Kashish%20Chawla&tn=undefined&am=${total}`}
                     size={156}
                   />
                 </div>

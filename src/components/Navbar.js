@@ -6,17 +6,26 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import DehazeIcon from "@mui/icons-material/Dehaze";
 import InputBase from "@mui/material/InputBase";
 import Drawers from "./drawer";
+// import { useLocation } from "react-router";
 
 export default function Navbar(props) {
   const [logoName, setLogoName] = useState("sFAVD");
   // const [open, setOpen] = React.useState(false);
-  let { isOpen, setOpen, isOpens, setOpens, isOpenA, setOpenA } = props;
+  let {
+    isOpen,
+    setOpen,
+    isOpens,
+    setOpens,
+    isOpenA,
+    setOpenA,
+    userName,
+  } = props;
   // const handleOpen = () => {
   //   console.log(isOpen);
   //   setIsOpen(!isOpen);
   //   console.log(isOpen);
   // };
-  const name = localStorage.getItem("name");
+
   return (
     <div
       style={{
@@ -34,7 +43,7 @@ export default function Navbar(props) {
       }}
     >
       <div className="initials" style={{ flex: 1 }}>
-        {name}
+        {userName}
       </div>
       <div className="drawer" style={{ flex: 1 }}>
         <DehazeIcon style={{ fontSize: "bolder" }} onClick={() => setOpen()} />

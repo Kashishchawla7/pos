@@ -1,4 +1,4 @@
-import { click } from "@testing-library/user-event/dist/click";
+// import { click } from "@testing-library/user-event/dist/click";
 import React, { useState } from "react";
 import { Row, Col } from "react-bootstrap";
 import "./item.css";
@@ -8,6 +8,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import toast, { Toaster } from "react-hot-toast";
+import { Url } from "url";
 // import "react-toastify/dist/ReactToastify.css";
 
 export default function Item(props) {
@@ -66,46 +67,62 @@ export default function Item(props) {
       <Grid container rowGap={1} columnGap={0.2}>
         {cat.map((item) => (
           // <Col lg="4">
-          <Grid cards lg={3.8}>
+          <Grid key={item.ITEM_ID} item lg={2.8} style={{ padding: 5 }}>
             <Card>
-              <div
-                className="display"
-                key={item.ITEM_ID}
-                onChange={(e, value) => setIndex(value)}
+              <Box
+                sx={{
+                  height: "100%",
+                  width: "100%",
+                  backgroundImage: `url("https://ibb.co/3ybzsHW")`,
+                  backgroundPosition: "center",
+                }}
               >
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="/static/images/cards/contemplative-reptile.jpg"
-                  alt="Image"
-                />
-                <CardContent style={{ width: "100%" }}>
-                  <Typography gutterBottom variant="h6" component="div">
-                    {item.ITEM}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    component="div"
-                    color="text.secondary"
-                  >
-                    {item.ITEM_PRICE}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button
-                    className="addButton"
-                    fullWidth
-                    // style={{ minWidth: "100%", width: "100%" }}
-                    variant="contained"
-                    color="primary"
-                    // size="lg"
-                    aria-label="add to shopping cart"
-                    onClick={() => update(item)}
-                  >
-                    ADD <AddShoppingCartIcon />
-                  </Button>
-                </CardActions>
-              </div>
+                <div
+                  className="displays"
+                  key={item.ITEM_ID}
+                  onChange={(e, value) => setIndex(value)}
+                >
+                  <CardMedia
+                    component="img"
+                    height="100%"
+                    src={item.IMAGE_PATH}
+                    alt="Image"
+                    title="Background Image"
+
+                    // component="img"
+                    // height="100%"
+                    // image={`url(./images/${item.ITEM_PATH})`}
+                    // alt="Image"
+                    // title="Background Image"
+                  />
+                  <CardContent style={{ width: "100%" }}>
+                    <Typography gutterBottom variant="h6" component="div">
+                      {item.ITEM}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      component="div"
+                      color="text.secondary"
+                    >
+                      {item.ITEM_PRICE}
+                    </Typography>
+                  </CardContent>
+                  <CardActions>
+                    <Button
+                      className="addButton"
+                      fullWidth
+                      // style={{ minWidth: "100%", width: "100%" }}
+                      variant="contained"
+                      color="primary"
+                      // size="lg"
+                      aria-label="add to shopping cart"
+                      onClick={() => update(item)}
+                    >
+                      ADD <AddShoppingCartIcon />
+                    </Button>
+                  </CardActions>
+                </div>
+              </Box>
             </Card>
           </Grid>
         ))}

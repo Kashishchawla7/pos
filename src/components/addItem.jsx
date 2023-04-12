@@ -132,9 +132,7 @@ const CustomTextFieldL = withStyles({
 export default function AddItem(props) {
   let navigate = useNavigate();
   const [category, setCategory] = React.useState("");
-  const [types, setTypes] = React.useState(["A", "B", "C", "D"]);
   const [price, setPrice] = React.useState("");
-  const [ages, setAges] = React.useState(["10", "20", "30", "40"]);
   const [name, setName] = React.useState("");
   const [files, setFiles] = useState([]);
   const [data, setData] = useState([]);
@@ -143,12 +141,23 @@ export default function AddItem(props) {
     setIsOpen(!isOpen);
   };
   const submit= () =>{
-    let body = JSON.parse(JSON.stringify({
-      name,price,category                                                                                                                     
-    }));
+    console.log(files)
+    console.log(name)
+    console.log(price)
+    console.log(category)
+    var formdata = new FormData();
+    formdata.append('itemImage',files[0].file)
+    formdata.append('name',name)
+    formdata.append('price',price)
+    formdata.append('category',category)
+    // let body = JSON.parse(JSON.stringify({
+    //   files,name,price,category                                                                                                                     
+    // }));
+    console.log(formdata)
     axios
-      .post("http://localhost:3001/addItem", {
-        body: body,
+      .post("http://localhost:3001/addItem", formdata, {
+        
+         headers: {'Content-Type': 'multipart/form-data' }
       })
   }
   useEffect(() => {
@@ -175,6 +184,8 @@ export default function AddItem(props) {
     accept: { "image/*": [] },
     maxFiles: 1,
     onDrop: (acceptedFiles) => {
+
+      console.log(acceptedFiles)
       setFiles(
         acceptedFiles.map((file) =>
           Object.assign(file, {

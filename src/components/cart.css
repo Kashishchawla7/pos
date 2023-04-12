@@ -1,4 +1,4 @@
-.display{
+.displays{
     /* float:left; */
     flex:1;
     justify-content: left;
@@ -6,7 +6,7 @@
     display:block;
     padding: 2%;
     display:flex;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     /* overflow:scroll; */
 
     /* max-width: 100%; */

@@ -3,29 +3,26 @@
     flex:1;
     /* height:8vh; */
     min-height:8vh;
-    max-height: 100vh;
+    /* max-height: 100vh; */
     /* maxWidth:100 ; */
     overflow:hidden;
 }
-.display{
-    /* float:left; */
+.displays{
+
     display:flex;
     flex:1;
     flex-direction: row;
-    /* max-height: 10rem; */
-    /* max-width: 25rem; */
-    /* height: 15rem; */
-    /* width:15rem; */
-    flex-wrap: wrap;
-    /* flex-direction: row; */
-    justify-content: left;
-    /* white-space: nowrap; */
-    /* display:block; */
-    /* padding: 2%; */
-    /* display:flex; */
-    /* background-color: #00A65a; */
 
-    /* max-width: 100%; */
+    flex-wrap: wrap;
+    padding: 2%;
+    justify-content: left;
+    white-space: nowrap;
+
+
+
+    /* flex:1; */
+    display:block;
+    /* display:flex;/ */
 
 }
 .name{

@@ -34,6 +34,8 @@ export default function Login() {
         ) {
           var names = JSON.parse(JSON.stringify(response));
           localStorage.setItem("name", names.data.procResults[0].USER_NAME);
+          var userName = names.data.procResults[0].USER_NAME;
+          console.log(userName);
           navigate("/admin");
         } else if (
           response.status == 200 &&

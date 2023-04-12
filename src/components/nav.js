@@ -48,7 +48,7 @@ export default function Navs(props) {
   //     </div>
   //   );
   return (
-    <div className="main">
+    <div className="mainssss" style={{ display: "flex", flex: 1 }}>
       <Categories className="divcon" setcat={setcat} />
     </div>
   );
