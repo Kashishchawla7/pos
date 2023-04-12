@@ -50,7 +50,7 @@ export default function Cart(props) {
   return (
     <div className="mainss">
       {cart.map((item, index) => (
-        <div className="displays" key={item.ITEM_ID}>
+        <div className="displayss" key={item.ITEM_ID}>
           <div className="name">{item.ITEM}</div>
 
           <div className="price">
