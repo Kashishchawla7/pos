@@ -8,6 +8,7 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import toast, { Toaster } from "react-hot-toast";
+import f1 from "../images/Lady Finger.jpg";
 import { Url } from "url";
 // import "react-toastify/dist/ReactToastify.css";
 
@@ -73,7 +74,7 @@ export default function Item(props) {
                 sx={{
                   height: "100%",
                   width: "100%",
-                  backgroundImage: `url("https://ibb.co/3ybzsHW")`,
+                  // backgroundImage: { f1 },
                   backgroundPosition: "center",
                 }}
               >
@@ -85,7 +86,7 @@ export default function Item(props) {
                   <CardMedia
                     component="img"
                     height="100%"
-                    src={item.IMAGE_PATH}
+                    src={f1}
                     alt="Image"
                     title="Background Image"
 

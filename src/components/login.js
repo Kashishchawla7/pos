@@ -21,7 +21,7 @@ export default function Login() {
   function handleSubmit(event) {
     event.preventDefault();
     axios
-      .post("http://localhost/login", {
+      .post("http://localhost:3001/login", {
         email: email,
         password: password,
         isAdmin: isAdmin,
