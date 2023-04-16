@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { makeStyles, withStyles, TextField } from "@material-ui/core";
 import { Redirect } from "react-router-dom";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
 const useStyles = makeStyles((theme) => ({
 
@@ -107,6 +108,8 @@ const CustomTextField = withStyles({
 })(TextField);
 
 export default function Success(props) {
+  const location = useLocation();
+  console.log(location.state) 
   const {
     id
   } = props;
@@ -115,6 +118,8 @@ export default function Success(props) {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+
 
   return (
     <div  className={classes.centered}>
@@ -140,7 +145,7 @@ export default function Success(props) {
                   readOnly
                   id="input-with-icon-textfield"
                   label="Username"
-                  value={id}
+                  value={location.state.name}
             
                 />
               </div>
@@ -151,8 +156,8 @@ export default function Success(props) {
                   fullWidth
                   readOnly
                   id="input-with-icon-textfield"
-                  label="Username"
-                  value={username}
+                  label="Email"
+                  value={location.state.email}
                  
                 />
               </div>
@@ -166,9 +171,9 @@ export default function Success(props) {
                   style={{ flex: 1 }}
                   fullWidth
                   id="input-with-icon-textfield"
-                  label="Username"
+                  label="Number"
                   readOnly={true}
-                  value={id}
+                  value={location.state.number}
                   
                 />
               </div>
@@ -179,8 +184,8 @@ export default function Success(props) {
                   fullWidth
                   readOnly={true}
                   id="input-with-icon-textfield"
-                  label="Username"
-                  value={username}
+                  label="Credit"
+                  value={location.state.credit}
                   
                 />
               </div>

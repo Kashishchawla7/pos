@@ -25,11 +25,11 @@ const list = [
     icon: BarChartIcon,
     url: "/admin/dashboard",
   },
-  {
-    name: "Place Order",
-    icon: ContentPasteSearchIcon,
-    url: "/admin/order",
-  },
+  // {
+  //   name: "Place Order",
+  //   icon: ContentPasteSearchIcon,
+  //   url: "/admin/order",
+  // },
   {
     name: "Add Item",
     icon: AddIcon,

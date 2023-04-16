@@ -104,11 +104,23 @@ export default function Checkout(props) {
       .then((response) => {
         console.log(JSON.parse(JSON.stringify(response)));
         if (response.status == 200) {
-          var names = JSON.parse(JSON.stringify(response));
+          var names = JSON.parse(
+            JSON.stringify(response["data"][0]["CUSTOMER_NAME"])
+          );
+          var credit = JSON.parse(
+            JSON.stringify(response["data"][0]["CUSTOMER_CREDIT"])
+          );
+          var number = JSON.parse(
+            JSON.stringify(response["data"][0]["CUSTOMER_NUMBER"])
+          );
+          var email = JSON.parse(
+            JSON.stringify(response["data"][0]["CUSTOMER_EMAIL"])
+          );
+          console.log(names);
           // var id = names.data.CUSTOMER_id
           // localStorage.setItem("name", names.data.procResults[0].USER_NAME);
           setCart([]);
-          navigate("/success");
+          navigate("/success", { state: {name:names,credit:credit,number:number,email:email} });
         }
       })
       .catch(function(response) {

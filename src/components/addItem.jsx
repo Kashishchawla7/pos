@@ -146,17 +146,21 @@ export default function AddItem(props) {
     console.log(price)
     console.log(category)
     var formdata = new FormData();
-    formdata.append('itemImage',files[0].file)
-    formdata.append('name',name)
-    formdata.append('price',price)
-    formdata.append('category',category)
+    formdata.append('itemImage', files[0].file);
+    formdata.append('name', name);
+    formdata.append('price', price);
+    formdata.append('category', category);
+
+    apicall(formdata)
+  }
     // let body = JSON.parse(JSON.stringify({
     //   files,name,price,category                                                                                                                     
     // }));
+    const apicall = (formdata) =>{
     console.log(formdata)
     axios
-      .post("http://localhost:3001/addItem", formdata, {
-        
+      .post("http://localhost:3001/addItem",formdata, {
+        // body:formdata,
          headers: {'Content-Type': 'multipart/form-data' }
       })
   }

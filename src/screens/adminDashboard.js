@@ -6,6 +6,7 @@ import Navbar from "../components/Navbar";
 import NotiDrawer from "../components/notidrawer";
 import { useLocation } from "react-router";
 import { CSSTransition } from "react-transition-group";
+
 // import "./styles.css";
 
 export default function Admin() {
@@ -26,7 +27,7 @@ export default function Admin() {
   const name = localStorage.getItem("name");
 
   return (
-    <div>
+    <div style={{ height: "100%", width: "100%" }}>
       <Navbar
         open={isOpen}
         setOpen={setOpen}
@@ -36,6 +37,7 @@ export default function Admin() {
         setOpenA={setOpenA}
         userName={name}
       />
+
       {isOpen && (
         <>
           <CSSTransition

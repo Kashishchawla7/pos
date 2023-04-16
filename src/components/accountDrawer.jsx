@@ -54,9 +54,9 @@ export default function AccountDrawer(props) {
       });
   }
   
-  function markOut() {
-  }
-  const logOut = () =>{
+ 
+  const logOut = async () =>{
+    await markIn();
     localStorage.removeItem("name");
     navigate("/");
   }
@@ -93,7 +93,6 @@ export default function AccountDrawer(props) {
           <div style={{display:"flex",justifyContent:"space-evenly"}}>
             
           <Button variant="contained" color="primary" onClick={markIn}>Mark In</Button>
-              <Button variant="contained" color="secondary" onClick={markOut}>Mark Out</Button>
               <Button variant="contained" onClick={logOut}>Log Out</Button>
           </div>
         </SwipeableDrawer>

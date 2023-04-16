@@ -18,6 +18,8 @@ import UpdateUser from "./components/updateUser";
 import DeleteUser from "./components/deleteUser";
 import DeleteItem from "./components/deleteItem";
 import UpdateItem from "./components/updateItem";
+import Dashboard from "./components/dashboard";
+import Admindash from "./components/admindash";
 
 function App() {
   const [cat, setcat] = useState([]);
@@ -55,7 +57,16 @@ function App() {
             element={<Checkout cart={cart} setCart={setCart} total={total} />}
           />
           {/* <Route path="/admin" exact element={<Navbar cart={cart} />} /> */}
-          <Route path="/admin" exact element={<Admin />} />
+          <Route
+            path="/admin"
+            exact
+            element={
+              <>
+                <Admin />
+                <Admindash />
+              </>
+            }
+          />
           <Route
             path="/admin/addItem"
             exact
@@ -83,6 +94,16 @@ function App() {
               <>
                 <Admin />
                 <DeleteItem />
+              </>
+            }
+          />
+          <Route
+            path="/admin/dashboard"
+            exact
+            element={
+              <>
+                <Admin />
+                <Dashboard />
               </>
             }
           />
