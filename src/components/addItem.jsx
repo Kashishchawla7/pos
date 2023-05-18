@@ -145,8 +145,8 @@ export default function AddItem(props) {
     console.log(name)
     console.log(price)
     console.log(category)
-    var formdata = new FormData();
-    formdata.append('itemImage', files[0].file);
+    let formdata = new FormData()
+    formdata.append('itemImage', files[0]); 
     formdata.append('name', name);
     formdata.append('price', price);
     formdata.append('category', category);
@@ -161,7 +161,8 @@ export default function AddItem(props) {
     axios
       .post("http://localhost:3001/addItem",formdata, {
         // body:formdata,
-         headers: {'Content-Type': 'multipart/form-data' }
+        headers: { 'Content-Type': 'multipart/form-data' },
+        data:formdata
       })
   }
   useEffect(() => {

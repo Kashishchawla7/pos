@@ -86,7 +86,7 @@ export default function Item(props) {
                   <CardMedia
                     component="img"
                     height="100%"
-                    src={f1}
+                    src={item.ITEM_PATH}
                     alt="Image"
                     title="Background Image"
 

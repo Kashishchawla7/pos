@@ -41,7 +41,12 @@ export default function Maingrid(props) {
         {console.log(cart)}
         <div className="div3">
           <Typography variant="h5">Cart</Typography>
-          <Cart cart={cart} total={total} setTotal={setTotal} />
+          <Cart
+            cart={cart}
+            total={total}
+            setCart={setCart}
+            setTotal={setTotal}
+          />
         </div>
       </Container>
       <div className="bottom">

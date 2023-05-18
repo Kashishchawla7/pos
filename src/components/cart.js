@@ -3,31 +3,45 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "./cart.css";
 import toast, { Toaster } from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 export default function Cart(props) {
   const [prices, setPrices] = useState();
 
-  // const [count, setCount] = useState(1);
-  let { cart, total, setTotal } = props;
-  console.log(cart);
-  // const senddata=()=>{
+  let { cart, total, setTotal, setCart } = props;
 
-  // }
-  // const sum1= 0;
-  // const total=(prod,count)=>{
+  const deleteItem = (item) => {
+    var temp = JSON.parse(JSON.stringify(cart));
+    temp.forEach((element, index) => {
+      // if (item.ITEM_QUANTITY !== 0) {
+      console.log(element);
+      if (element.ITEM == item.ITEM) {
+        temp[index].ITEM_PRICE =
+          parseInt(element.ITEM_PRICE) -
+          parseInt(item.ITEM_PRICE) / parseInt(item.ITEM_QUANTITY);
+        temp[index].ITEM_QUANTITY = parseInt(element.ITEM_QUANTITY) - 1;
+        console.log("====================================");
+        console.log(index);
+        console.log("====================================");
+        // if (temp[index].ITEM_QUANTITY == 0) {
+        //   // console.log("====================================");
+        //   // console.log("why");
+        //   // console.log("====================================");
+        //   temp.pop(item);
+        // }
+        if (temp[index].ITEM_QUANTITY <= 0) {
+          console.log("====================================");
+          console.log(index);
+          console.log("====================================");
+          temp.splice(index, 1);
+        }
+      }
+    });
+    // }
+    setCart(temp);
+  };
 
-  //   let total = 0;
-  //   for (let index = 0; index < prod.length; index++) {
-  //     const element = prod[index].price;
-  //     console.log(element,typeof(element));
-  //     total= total + (parseInt(element)*count);
-  //     // sum1= total;
-  //     console.log(total);
-  //   }
-  //   localStorage.setItem('Total', total);
-  //   // setPrices(total)
-  //   return total
-  // }
   useEffect(() => {
     var totals = update(cart);
     console.log(totals, "afsg");
@@ -35,9 +49,6 @@ export default function Cart(props) {
   }, [[], cart]);
 
   const update = (cart) => {
-    console.log(cart);
-
-    // setTotal(0);
     var temp = JSON.parse(JSON.stringify(cart));
     var totals = 0;
     temp.forEach((element, index) => {
@@ -47,17 +58,16 @@ export default function Cart(props) {
     console.log(totals);
     return totals;
   };
+
   return (
     <div className="mainss">
       {cart.map((item, index) => (
         <div className="displayss" key={item.ITEM_ID}>
           <div className="name">{item.ITEM}</div>
-
           <div className="price">
             <input
               type="number"
               placeholder="Quantity"
-              // defaultValue={1}
               value={item.ITEM_QUANTITY}
               maxLength={3}
               style={{
@@ -67,13 +77,9 @@ export default function Cart(props) {
             />
           </div>
           <div className="price">{item.ITEM_PRICE}</div>
+          <FontAwesomeIcon icon={faTrash} onClick={() => deleteItem(item)} />
         </div>
       ))}
-      {/* <div className="total"> */}
-      {/* <hr></hr> */}
-      {/* <div style={{ flex: 1, fontWeight: "bold" }}>TOTAL:</div> */}
-      {/* <div style={{ flex: 3, fontWeight: "bolder" }}>{total}</div> */}
-      {/* </div> */}
     </div>
   );
 }
